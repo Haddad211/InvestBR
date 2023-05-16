@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <link href="showposts.component.css" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation" >
+        <ul>
+            <li>
+                <a href="">
+                    <span class="img"><img src="../assets/images/8adida.png"></span>
+                    <span class="title1">InvestBridge</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/investor']">
+                    <span class="icon"><i class="ionicons ion-stats-bars"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+              <a [routerLink]="['/investor-contact']">
+                    <span class="icon"><i class="ionicons ion-android-people"></i></span>
+                    <span class="title">Matching Liste</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/sendmessageinvestor']">
+                    <span class="icon"><i class="ionicons ion-ios-chatboxes-outline"></i></span>
+                    <span class="title" >Chat</span>
+                </a>
+            </li>
+            <li>
+              <a [routerLink]="['/showposts']">
+                    <span class="icon"><i class="ionicons ion-ios-search-strong"></i></span>
+                    <span class="title">Posts</span>
+                </a>
+            </li>
+            <li>
+                <a  [routerLink]="['/investor-profile']">
+                    <span class="icon"><i class="ionicons ion-person"></i></span>
+                    <span class="title">Profil</span>
+                </a>
+            </li>
+            <li>
+              <a  [routerLink]="['/notification-investor']">
+                  <span class="icon"><i   class="ionicons ion-android-notifications" ></i></span>
+                  <span class="title">Notification</span>
+              </a>
+          </li>
+            <li>
+                <a (click)="logout()">
+                    <span class="icon"><i class="ionicons ion-log-out"></i></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+<div class="topbar">
+  <div class="toggle">
+    <i class="ionicons ion-navicon"></i>
+  </div>
+  <div class="search">
+    <input class="searchforpost" type="text" placeholder="Search for post here" [(ngModel)]="searchTerm">
+    <i  (click)="searchPosts()" class="ionicons ion-ios-search-strong"></i>
+  </div>
+
+</div>
+<div class="elements" *ngFor="let post of posts ;let i=index">
+  <div class="test">
+    <div class="cardBox">
+      <div class="card222">
+        <img src="../assets/images/innovator.png">
+      </div>
+        <div class="post">
+          <div class="tit">
+            <a>{{ post.autherfirstname+" "+post.autherlastname }}</a><br>
+            <a class="time">Posted At {{  post.createdAt | date:'medium' }}</a><br>
+          </div>
+          <div class="add">
+            <a class="addone" (click)="sendFriendshipInvitation(post.innovator,post._id)" (click)="changeIconColor(i)">
+              <i [ngClass]="{'ionicons ion-plus-circled': !iconColors[i], 'ionicons ion-checkmark-circled': iconColors[i]}"></i>
+            </a>
+          </div>
+      </div>
+    </div>
+    <div class="static">
+      <p>Branche: {{post.branch}}</p>
+      <p>Type :{{post.type}}</p>
+    </div>
+    <div class="statu">
+      <a class="tit">{{post.title}}</a><br>
+      <a>{{ post.description }}</a>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

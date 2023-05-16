@@ -1,0 +1,173 @@
+
+<html dir="ltr" lang="en">
+<head>
+  <link href="addpost.component.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navigation" >
+        <ul>
+            <li>
+                <a href="">
+                    <span class="img"><img src="../assets/images/8adida.png"></span>
+                    <span class="title1">InvestBridge</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/innovator']">
+                    <span class="icon"><i class="ionicons ion-stats-bars"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/innovator-contact']">
+                    <span class="icon"><i class="ionicons ion-android-people"></i></span>
+                    <span class="title">Matching Liste</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/sendmessageinnovator']" >
+                    <span class="icon"><i class="ionicons ion-ios-chatboxes-outline"></i></span>
+                    <span class="title" >Chat</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/addpost']">
+                    <span class="icon"><i class="ionicons ion-ios-search-strong"></i></span>
+                    <span class="title">Add Post</span>
+                </a>
+            </li>
+            <li>
+                <a  [routerLink]="['/innovator-profile']">
+                    <span class="icon"><i class="ionicons ion-person"></i></span>
+                    <span class="title">Profil</span>
+                </a>
+            </li>
+            <li>
+              <a  [routerLink]="['/notification-innovator']">
+                  <span class="icon"><i   class="ionicons ion-android-notifications" ></i></span>
+                  <span class="title">Notification</span>
+              </a>
+          </li>
+            <li>
+                <a (click)="logout()">
+                    <span class="icon"><i class="ionicons ion-log-out"></i></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+<div class="topbar">
+  <div class="toggle">
+    <i class="ionicons ion-navicon"></i>
+  </div>
+  <div class="user">
+    <div class="not">
+      <i (click)="restnotification()"  class="notification ion-android-notifications" [ngClass]="{'yellow': nbnotif > 0}"></i>
+      <p class="nbnotif">{{nbnotif}}</p>
+    </div>
+      <img src="../assets/images/innovator.png" [routerLink]="['/innovator-profile']">
+  </div>
+  </div>
+
+  <div class="containerpost">
+    <div class="titlepost">Add Post</div>
+    <div class="content">
+<form class="form-detail" action="#" method="post" id="myform" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="user-details">
+    <div class="input-box">
+    <select class="select-det" formControlName="branch" name="branch" [(ngModel)]="branch" required>
+        <option value="">--Choose a domain--</option>
+        <option value="agriculture">Agriculture</option>
+        <option value="energy">Energy</option>
+        <option value="construction">Construction</option>
+        <option value="transportation">Transportation</option>
+        <option value="manufacturing">Manufacturing</option>
+        <option value="technology">Technology</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="education">Education</option>
+        <option value="finance">Finance</option>
+        <option value="real-estate">Real estate</option>
+        <option value="hospitality">Hospitality</option>
+        <option value="retail">Retail</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="government">Government</option>
+        <option value="non-profit">Non-profit</option>
+        <option value="telecommunications">Telecommunications</option>
+        <option value="legal">Legal</option>
+        <option value="marketing">Marketing</option>
+        <option value="media">Media</option>
+        <option value="sports">Sports</option>
+      </select>
+      <div *ngIf="submitted && f['branch'].errors"  class="error-message">
+        <div *ngIf="f['branch'].errors['required']">Domain is required</div>
+      </div>
+</div>
+<div class="input-box">
+<select class="select-det" formControlName="type" name="type" [(ngModel)]="type" required>
+        <option value="">--Short or Long Term--</option>
+        <option value="short">Short</option>
+        <option value="long">Long</option>
+      </select>
+      <div *ngIf="submitted && f['type'].errors"  class="error-message">
+        <div *ngIf="f['type'].errors['required']">Short or Long Term is required</div>
+      </div>
+</div>
+</div>
+<div class="user-details">
+<div class="input-box">
+<select class="select-det" formControlName="budget" name="budget" [(ngModel)]="budget" required>
+    <option value="">--Investment Budget--</option>
+    <option value="5000DT"><a>Lower than 5000dt</a></option>
+    <option value="6000DT"><a>Between 5000dt and 10000dt</a></option>
+    <option value="10000DT"><a>Between 10000dt and 15000dt</a></option>
+    <option value="15000DT"><a>Between 15000dt and 20000dt</a></option>
+    <option value="20000DT"><a>Between 20000dt and 25000dt</a></option>
+    <option value="25000DT"><a>Between 25000dt and 30000dt</a></option>
+    <option value="30000DT"><a>Between 30000dt and 35000dt</a></option>
+    <option value="35000DT"><a>Between 35000dt and 40000dt</a></option>
+    <option value="40000DT"><a>Between 40000dt and 45000dt</a></option>
+    <option value="45000DT"><a>Between 45000dt and 50000dt</a></option>
+    <option value="50000DT"><a>More than 50000dt </a></option>
+  </select>
+  <div *ngIf="submitted && f['budget'].errors"  class="error-message">
+    <div *ngIf="f['budget'].errors['required']">Investment Budget is required</div>
+  </div>
+</div>
+<div class="input-box">
+<input class="details" placeholder="title" type="title" formControlName="title" class="form-control" required maxlength="50" [(ngModel)]="title"/>
+<div *ngIf="submitted && f['title'].errors"  class="error-message">
+<div *ngIf="f['title'].errors['required']">Title is required</div>
+<div *ngIf="f['title'].errors['maxlength']">Title must be a maximum of 50 characters</div>
+</div>
+</div>
+</div>
+<div class="user-details">
+  <div class="input-box1">
+<input class="details" placeholder="Description"  formControlName="description" class="form-control" required maxlength="1000" [(ngModel)]="description" />
+<div *ngIf="submitted && f['description'].errors"  class="error-message">
+  <div *ngIf="f['description'].errors['required']">Description is required</div>
+  <div *ngIf="f['description'].errors['maxlength']">Description must be a maximum of 1000 characters</div>
+
+</div>
+</div>
+<div class="button">
+  <input type="submit" value="Post">
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+

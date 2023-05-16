@@ -1,0 +1,115 @@
+
+<html dir="ltr" lang="en">
+<head>
+  <link href="dashbord.component.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+       data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+       <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <div class="navbar-header" data-logobg="skin6">
+                  <p style="font-size: 30px ;text-align :center;">Admin</p>
+            </div>
+
+        </nav>
+       </header>
+
+       <aside class="left-sidebar" data-sidebarbg="skin6">
+
+           <div class="scroll-sidebar">
+
+               <nav class="sidebar-nav">
+                   <ul id="sidebarnav">
+
+                       <li class="sidebar-item pt-2">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link"  [routerLink]="['/admin']"
+                               aria-expanded="false">
+                               <i class="far fa-clock" aria-hidden="true"></i>
+                               <span class="hide-menu">Dashboard</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/showaccepted']"
+                               aria-expanded="false">
+                               <i class="fa fa-table" aria-hidden="true"></i>
+                               <span class="hide-menu">Show accepted</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/showall']"
+                               aria-expanded="false">
+                               <i class="fa fa-table" aria-hidden="true"></i>
+                               <span class="hide-menu">Show all</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/addadmin']"
+                               aria-expanded="false">
+                               <i class="fa fa-font" aria-hidden="true"></i>
+                               <span class="hide-menu">Add Admin</span>
+                           </a>
+                           <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" (click)="logout()"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Logout</span>
+                            </a>
+                   </ul>
+               </nav>
+           </div>
+       </aside>
+       <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title">Total Users</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-success">{{total}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title">Innovators</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash2"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-purple">{{innovatorCount}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title">Investors</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash3"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-info">{{investorCount}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>

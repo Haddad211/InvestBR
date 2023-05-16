@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <link href="contact-investor.component.css" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation" >
+        <ul>
+            <li>
+                <a href="">
+                    <span class="img"><img src="../assets/images/8adida.png"></span>
+                    <span class="title1">InvestBridge</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/investor']">
+                    <span class="icon"><i class="ionicons ion-stats-bars"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+              <a [routerLink]="['/investor-contact']">
+                    <span class="icon"><i class="ionicons ion-android-people"></i></span>
+                    <span class="title">Matching Liste</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/sendmessageinvestor']">
+                    <span class="icon"><i class="ionicons ion-ios-chatboxes-outline"></i></span>
+                    <span class="title" >Chat</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/showposts']">
+                    <span class="icon"><i class="ionicons ion-ios-search-strong"></i></span>
+                    <span class="title">Posts</span>
+                </a>
+            </li>
+            <li>
+                <a  [routerLink]="['//investor-profile']">
+                    <span class="icon"><i class="ionicons ion-person"></i></span>
+                    <span class="title">Profil</span>
+                </a>
+            </li>
+            <li>
+              <a  [routerLink]="['/notification-investor']">
+                  <span class="icon"><i   class="ionicons ion-android-notifications" ></i></span>
+                  <span class="title">Notification</span>
+              </a>
+          </li>
+            <li>
+                <a (click)="logout()">
+                    <span class="icon"><i class="ionicons ion-log-out"></i></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+<div class="topbar">
+  <div class="toggle">
+    <i class="ionicons ion-navicon"></i>
+  </div>
+</div>
+<div class="recentCustomers">
+  <div class="cardHeader">
+      <h2>Matching Liste</h2>
+  </div>
+  <table>
+    <tr *ngFor="let waiting of waitingfriendship">
+      <td width="60px">
+        <div class="imgBx"><img src="../assets/images/innovator.png" alt=""></div>
+      </td>
+      <td class="position">
+        <div class="nname">
+        <h4>{{  waiting.receiverName}} {{  waiting.receiverLastname }}</h4>
+        <p class="viewaccepted"  >{{waiting.status}}</p>
+      </div>
+      <button class="Refuse"  (click)="delfriendshipsend(waiting.id)">Cancel</button>
+      </td>
+    </tr>
+    <tr *ngFor="let accepted of friendshipAccepted">
+      <td width="60px">
+        <div class="imgBx"><img src="../assets/images/innovator.png" alt=""></div>
+      </td>
+      <td class="position">
+        <div class="nname">
+        <h4>{{  accepted.receiverName}} {{  accepted.receiverLastName }}</h4>
+        <p class="viewaccepted"  >{{ accepted.status}}</p>
+      </div>
+        <button  class="btn btn-primary" [routerLink]="['/sendmessageinvestor']" (click)="saveData(accepted.idinnovator)">Sendms</button>
+      </td>
+    </tr>
+  </table>
+         </div>
+     </div>
+</body>
+
+
+
+</html>

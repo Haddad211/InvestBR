@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <link href="dashboard-investor.component.css" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation" >
+        <ul>
+            <li>
+                <a href="">
+                    <span class="img"><img src="../assets/images/8adida.png"></span>
+                    <span class="title1">InvestBridge</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/investor']">
+                    <span class="icon"><i class="ionicons ion-stats-bars"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/investor-contact']">
+                    <span class="icon"><i class="ionicons ion-android-people"></i></span>
+                    <span class="title">Matching Liste</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/sendmessageinvestor']">
+                    <span class="icon"><i class="ionicons ion-ios-chatboxes-outline"></i></span>
+                    <span class="title" >Chat</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/showposts']">
+                    <span class="icon"><i class="ionicons ion-ios-search-strong"></i></span>
+                    <span class="title">Posts</span>
+                </a>
+            </li>
+            <li>
+                <a  [routerLink]="['/investor-profile']">
+                    <span class="icon"><i class="ionicons ion-person"></i></span>
+                    <span class="title">Profil</span>
+                </a>
+            </li>
+            <li>
+              <a  [routerLink]="['/notification-investor']">
+                  <span class="icon"><i   class="ionicons ion-android-notifications" ></i></span>
+                  <span class="title">Notification</span>
+              </a>
+          </li>
+            <li>
+                <a (click)="logout()">
+                    <span class="icon"><i class="ionicons ion-log-out"></i></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+<div class="topbar">
+  <div class="toggle">
+    <i class="ionicons ion-navicon"></i>
+  </div>
+
+
+
+  <div class="user">
+    <div class="not">
+      <i   [routerLink]="['/notification-investor']" class="notification ion-android-notifications" [ngClass]="{'yellow': nbnotif > 0}"></i>
+      <p class="nbnotif">{{nbnotif}}</p>
+    </div>
+      <img src="../assets/images/investor.png" [routerLink]="['/investor-profile']">
+  </div>
+
+</div>
+<p class="tilteposts">The most popular branches</p>
+<div class="cardBox">
+
+  <div class="card" *ngFor="let branch of topBranches">
+    <div>
+      <div class="numbers">{{ branch.percentage }}%</div>
+      <div class="cardName">{{ branch.branch }}</div>
+    </div>
+  </div>
+</div>
+<div class="allpoststitlte">
+<div class="postscont">
+<p class="tilteposts">TOP 3 POSTS</p>
+<div class="fullpost" *ngFor="let post of topPosts">
+  <div class="elements">
+    <div class="cardBox">
+      <div class="card222">
+        <img src="../assets/images/innovator.png">
+      </div>
+      <div class="listposts">
+        <div class="pay">
+          <h4>{{ post.title }}</h4>
+          <br>
+          <span class="date">Created At: {{ post.createdAt | date: 'MMM d, hh:mm a, y' }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="statu">
+      <p>{{post.description}}</p>
+  </div>
+  </div>
+</div>
+</div>
+<div class="postscont">
+  <p class="tilteposts">LALST 3 POSTS </p>
+  <div class="fullpost" *ngFor="let post of lastposts">
+    <div class="elements">
+      <div class="cardBox">
+        <div class="card222">
+          <img src="../assets/images/innovator.png">
+        </div>
+        <div class="listposts">
+          <div class="pay">
+            <h4>{{ post.title }}</h4>
+            <br>
+            <span class="date">Created At: {{ post.createdAt | date: 'MMM d, hh:mm a, y' }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="statu">
+        <p>{{post.description}}</p>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</body>
+
+
+</html>

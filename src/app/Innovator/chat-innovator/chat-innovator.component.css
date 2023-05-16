@@ -1,0 +1,431 @@
+/* ********** Google Fonts******** */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+*{
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background:#2a2185;
+    border-left: 10px solid #2a2185;
+    transition:0.5s;
+    overflow: hidden;
+}
+.navigation ul{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+li .img {
+    display: inline-block;
+    width: 60px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  li .img img {
+    max-width: 100%;
+    height: auto;
+  }
+  li .title1{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 60px;
+  }
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.navigation ul li:hover,
+.navigation ul li.hovered{
+    background-color: #fff;
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li a{
+    position:relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    line-height: 60px;
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
+    color: #2a2185;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+.navigation ul li a .icon .ionicons{
+    font-size: 25px;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+/*=== curve outside ======*/
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px #fff;
+    pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px #fff;
+    pointer-events: none;
+}
+/* ===================== Main ===================== */
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background:#fff;
+    transition: 0.5s;
+  }
+  .main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+  }
+
+  .topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+
+  .search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+  }
+
+  .search label {
+    position: relative;
+    width: 100%;
+  }
+
+  .search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #999;
+  }
+
+  .search label .ionicons {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+
+  /* ======================= Cards ====================== */
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+  }
+
+  .cardBox .card {
+    position: relative;
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: #2a2185;
+  }
+
+  .cardBox .card .cardName {
+    color:#999;
+    font-size: 1.1rem;
+    margin-top: 5px;
+  }
+
+  .cardBox .card .iconBx {
+    font-size: 3.5rem;
+    color: var(#999);
+  }
+
+  .cardBox .card:hover {
+    background: #2a2185;
+  }
+  .cardBox .card:hover .numbers,
+  .cardBox .card:hover .cardName,
+  .cardBox .card:hover .iconBx {
+    color: #fff;
+  }
+  .card222 {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 0px;
+  }
+  .cardBox {
+    display: flex;
+    align-items: center;
+  }
+  .card222 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .pay {
+    padding: 10px 0px;
+    margin-bottom: 0px;
+
+  }
+  .cardBox pay h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2rem;
+  }
+  .statu a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+
+  }
+  .statu {
+    margin-bottom: 200px;
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    margin-top: 0 px;
+    margin-left:50px;
+    margin-bottom: 10%;
+  }
+  .anawayek button.zid {
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 15px;
+    height:15px;
+    border-radius:50%;
+    background-color: oldlace;
+  }
+  .zid {
+    font-size: 100%;
+  }
+  .plus {
+    text-align: center;
+  }
+
+  .elements{
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    display: ruby-text;
+    width: 90%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 250px;
+    margin-bottom: 150px;
+  }
+
+.icon{
+ top:13px;
+
+}
+
+.positionmessage{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.sendandreceive{
+display: flex;
+justify-content: space-between;
+}
+
+
+
+
+.ecrire-mes {
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 10px;
+
+}
+.text-mes input {
+  padding: 10px;
+  text-decoration: none;
+  border: none;
+  border-color: transparent;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.text-mes {
+  background: white;
+  padding: 5px;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  margin-top: 0 px;
+  flex-grow: 1;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ms{
+  background:  #fff;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  width: fit-content;
+  text-decoration: none;
+  border-radius: 500px;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.message-contenu  p {
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+
+}
+.message-recu p {
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.message-recu{
+  margin-top: 40px;
+}
+.dt{
+  color: gray;
+  font-size: 3px;
+}
+.icons{
+  font-size: 30px;
+}
+.notification{
+  font-size: 25px;
+  cursor: pointer;
+  color: rgb(86, 86, 242);
+}
+.not{
+  display: inline-block;
+  margin-right: 20px;
+  margin-top:12px;
+}
+.yellow {
+  color:rgb(180, 174, 15);
+}
+.nbnotif{
+  margin-left: 12px;
+  background-color: #c4c2c2;
+  border-radius: 50%;
+  width: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+.user {
+
+  display: flex;
+
+}
+
+.user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}

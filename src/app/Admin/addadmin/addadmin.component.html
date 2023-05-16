@@ -1,0 +1,138 @@
+
+<html lang="en">
+  <head>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="addadmin.component.css">
+
+  </head>
+  <body>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+       data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+       <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <div class="navbar-header" data-logobg="skin6">
+                  <p style="font-size: 30px ;text-align :center;">Admin</p>
+            </div>
+
+        </nav>
+       </header>
+
+       <aside class="left-sidebar" data-sidebarbg="skin6">
+           <!-- Sidebar scroll-->
+           <div class="scroll-sidebar">
+               <!-- Sidebar navigation-->
+               <nav class="sidebar-nav">
+                   <ul id="sidebarnav">
+                       <!-- User Profile-->
+                       <li class="sidebar-item pt-2">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/admin']"
+                               aria-expanded="false">
+                               <i class="far fa-clock" aria-hidden="true"></i>
+                               <span class="hide-menu">Dashboard</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/showaccepted']"
+                               aria-expanded="false">
+                               <i class="fa fa-table" aria-hidden="true"></i>
+                               <span class="hide-menu">Show accepted</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/showall']"
+                               aria-expanded="false">
+                               <i class="fa fa-table" aria-hidden="true"></i>
+                               <span class="hide-menu">Show all</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/addadmin']"
+                               aria-expanded="false">
+                               <i class="fa fa-font" aria-hidden="true"></i>
+                               <span class="hide-menu">Add Admin</span>
+                           </a>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" (click)="logout()"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Logout</span>
+                            </a>
+                   </ul>
+               </nav>
+           </div>
+       </aside>
+
+       <div class="page-wrapper">
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Add Admin</h4>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-8 col-xlg-9 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="form-horizontal form-material">
+                                <div class="form-group mb-4">
+                                    <label class="col-md-12 p-0" >First name</label>
+                                    <div class="col-md-12 border-bottom p-0">
+                                        <input type="text"
+                                           name="firstname"
+                                           id="firstname"
+                                            class="form-control p-0 border-0"
+                                            [(ngModel)]="firstname"
+                                            > </div>
+                                </div>
+                                <div class="form-group mb-4">
+                                  <label class="col-md-12 p-0" >Last name</label>
+                                  <div class="col-md-12 border-bottom p-0">
+                                      <input type="text"
+                                      name="lastname"
+                                      id="lastname"
+                                      [(ngModel)]="lastname"
+                                          class="form-control p-0 border-0"> </div>
+                              </div>
+                                <div class="form-group mb-4">
+                                    <label for="example-email" class="col-md-12 p-0">Email</label>
+                                    <div class="col-md-12 border-bottom p-0">
+                                        <input type="email"
+                                        [(ngModel)]="email"
+                                        name="email"
+                                        id="email"
+                                            class="form-control p-0 border-0" name="example-email"
+                                            id="example-email">
+                                    </div>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label class="col-md-12 p-0"  >Password</label>
+                                    <div class="col-md-12 border-bottom p-0">
+                                        <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control p-0 border-0">
+                                    </div>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success" (click)="Addadmin()">Add admin</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+  </body>
+
+
+

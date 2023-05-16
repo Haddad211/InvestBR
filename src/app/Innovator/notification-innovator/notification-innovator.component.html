@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <link href="notification-innovator.component.css" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation" >
+        <ul>
+            <li>
+                <a href="">
+                    <span class="img"><img src="../assets/images/8adida.png"></span>
+                    <span class="title1">InvestBridge</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/innovator']">
+                    <span class="icon"><i class="ionicons ion-stats-bars"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/innovator-contact']">
+                    <span class="icon"><i class="ionicons ion-android-people"></i></span>
+                    <span class="title">Matching Liste</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/sendmessageinnovator']" >
+                    <span class="icon"><i class="ionicons ion-ios-chatboxes-outline"></i></span>
+                    <span class="title" >Chat</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/addpost']">
+                    <span class="icon"><i class="ionicons ion-ios-search-strong"></i></span>
+                    <span class="title">Add Post</span>
+                </a>
+            </li>
+            <li>
+                <a  [routerLink]="['/innovator-profile']">
+                    <span class="icon"><i class="ionicons ion-person"></i></span>
+                    <span class="title">Profil</span>
+                </a>
+            </li>
+            <li>
+              <a  [routerLink]="['/notification-innovator']">
+                  <span class="icon"><i   class="ionicons ion-android-notifications" ></i></span>
+                  <span class="title">Notification</span>
+              </a>
+          </li>
+            <li>
+                <a (click)="logout()">
+                    <span class="icon"><i class="ionicons ion-log-out"></i></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+<div class="topbar">
+  <div class="toggle">
+    <i class="ionicons ion-navicon"></i>
+  </div>
+</div>
+<section class="section-50" >
+  <div class="container">
+    <div class="sider">
+    <h3 class="m-b-50 heading-line">Notifications <i class="ionicons ion-android-notifications-none"></i></h3>
+    <button (click)="clearnotifications()"class="btn-primary">clear</button>
+  </div>
+
+    <div class="notification-ui_dd-content" *ngFor="let notification of notif">
+      <div class="notification-list notification-list--unread" >
+        <div class="notification-list_content">
+          <div class="notification-list_detail">
+            <p><b>New Notification:</b></p>
+            <p class="text-muted">{{notification.message}}</p>
+            <p class="text-muted"><small>{{notification.data| date: 'hh:mm a, MMM d, y'}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</body>
+</html>

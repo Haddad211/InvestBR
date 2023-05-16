@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <link href="contact-innovator.component.css" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation" >
+        <ul>
+            <li>
+                <a href="">
+                    <span class="img"><img src="../assets/images/8adida.png"></span>
+                    <span class="title1">InvestBridge</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/innovator']">
+                    <span class="icon"><i class="ionicons ion-stats-bars"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/innovator-contact']">
+                    <span class="icon"><i class="ionicons ion-android-people"></i></span>
+                    <span class="title">Matching Liste</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/sendmessageinnovator']" >
+                    <span class="icon"><i class="ionicons ion-ios-chatboxes-outline"></i></span>
+                    <span class="title" >Chat</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/addpost']">
+                    <span class="icon"><i class="ionicons ion-ios-search-strong"></i></span>
+                    <span class="title">Add Post</span>
+                </a>
+            </li>
+            <li>
+                <a  [routerLink]="['/innovator-profile']">
+                    <span class="icon"><i class="ionicons ion-person"></i></span>
+                    <span class="title">Profil</span>
+                </a>
+            </li>
+            <li>
+              <a  [routerLink]="['/notification-innovator']">
+                  <span class="icon"><i   class="ionicons ion-android-notifications" ></i></span>
+                  <span class="title">Notification</span>
+              </a>
+          </li>
+            <li>
+                <a (click)="logout()">
+                    <span class="icon"><i class="ionicons ion-log-out"></i></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+<div class="topbar">
+  <div class="toggle">
+    <i class="ionicons ion-navicon"></i>
+  </div>
+  <div class="user">
+    <div class="not">
+      <i (click)="restnotification()"  class="notification ion-android-notifications" [ngClass]="{'yellow': nbnotif > 0}"></i>
+      <p class="nbnotif">{{nbnotif}}</p>
+    </div>
+      <img src="../assets/images/innovator.png" [routerLink]="['/innovator-profile']">
+  </div>
+</div>
+<div class="recentCustomers">
+  <div class="cardHeader">
+      <h2>Matching Liste</h2>
+  </div>
+  <table>
+    <tr *ngFor="let invitation of friendshipInvitations">
+      <td width="60px">
+        <div class="imgBx"><img src="../assets/images/investor.png" alt=""></div>
+      </td>
+      <td class="position">
+        <div class="nname">
+        <h4>{{ invitation.senderName}} {{ invitation.senderLastName }}<br></h4>
+        <p class="viewtitle">Interested in : {{invitation.title}} </p>
+      </div>
+        <div>
+        <button class="Refuse"  (click)=" updateInvitationStatus(invitation.id, 'rejected',invitation.idinvestor)">Rejected</button>
+        <button class="View"  (click)=" updateInvitationStatus(invitation.id, 'accepted',invitation.idinvestor)">ACCEPT</button>
+      </div>
+      </td>
+    </tr>
+    <tr *ngFor="let accepted of friendshipAccepted">
+      <td width="60px">
+        <div class="imgBx"><img src="../assets/images/investor.png" alt=""></div>
+      </td>
+      <td class="position">
+        <div class="nname">
+        <h4>{{  accepted.senderName}} {{  accepted.senderLastName }}</h4>
+        <p class="viewaccepted"  >{{ accepted.status}}</p>
+        <p class="viewtitle">Interested in : {{accepted.title}} </p>
+      </div>
+
+        <button  class="btn btn-primary" [routerLink]="['/sendmessageinnovator']" (click)="saveData(accepted.idinvestor)">sendms</button>
+      </td>
+    </tr>
+    <tr *ngFor="let rejected of friendshipRejected">
+      <td width="60px">
+        <div class="imgBx"><img src="../assets/images/investor.png" alt=""></div>
+      </td>
+      <td class="position">
+        <div class="nname">
+        <h4>{{  rejected.senderName}} {{  rejected.senderLastName }}</h4>
+        <p class="viewrejected"  >{{ rejected.status}}</p>
+      </div>
+      </td>
+    </tr>
+  </table>
+         </div>
+     </div>
+</body>
+
+
+
+</html>

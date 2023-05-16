@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <link href="dashboard-innovator.component.css" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation" >
+        <ul>
+            <li>
+                <a href="">
+                    <span class="img"><img src="../assets/images/8adida.png"></span>
+                    <span class="title1">InvestBridge</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/innovator']">
+                    <span class="icon"><i class="ionicons ion-stats-bars"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/innovator-contact']">
+                    <span class="icon"><i class="ionicons ion-android-people"></i></span>
+                    <span class="title">Matching Liste</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/sendmessageinnovator']" >
+                    <span class="icon"><i class="ionicons ion-ios-chatboxes-outline"></i></span>
+                    <span class="title" >Chat</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/addpost']">
+                    <span class="icon"><i class="ionicons ion-ios-search-strong"></i></span>
+                    <span class="title">Add Post</span>
+                </a>
+            </li>
+            <li>
+                <a  [routerLink]="['/innovator-profile']">
+                    <span class="icon"><i class="ionicons ion-person"></i></span>
+                    <span class="title">Profil</span>
+                </a>
+            </li>
+            <li>
+              <a  [routerLink]="['/notification-innovator']">
+                  <span class="icon"><i   class="ionicons ion-android-notifications" ></i></span>
+                  <span class="title">Notification</span>
+              </a>
+          </li>
+            <li>
+                <a (click)="logout()">
+                    <span class="icon"><i class="ionicons ion-log-out"></i></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+<div class="topbar">
+  <div class="toggle">
+    <i class="ionicons ion-navicon"></i>
+  </div>
+
+
+  <div class="user">
+    <div class="not">
+      <i [routerLink]="['/notification-innovator']"  class="notification ion-android-notifications" [ngClass]="{'yellow': nbnotif > 0}"></i>
+      <p class="nbnotif">{{nbnotif}}</p>
+    </div>
+      <img src="../assets/images/innovator.png" [routerLink]="['/innovator-profile']">
+  </div>
+
+</div>
+<div class="fullcharts">
+<div class="elementsbranche">
+<canvas id="myChart"></canvas>
+</div>
+<div class="elementsbranche">
+<canvas id="myChartinvestor"></canvas>
+</div>
+</div>
+<div>
+  <p class="tilteposts">YOUR POSTS</p>
+<div class="fullpost" *ngFor="let posts of postlist">
+<div class="elements"   >
+  <div class="cardBox">
+      <div class="card222">
+          <img src="../assets/images/innovator.png">
+      </div>
+      <div class="listposts">
+          <div class="pay">
+              <h4>{{posts.title}}
+                  <br>
+                  <span class="date">Created At : {{posts.createdAt| date: 'MMM d,hh:mm a,y'}}</span>
+              </h4>
+          </div>
+      </div>
+      <div>
+        <button (click)="deletepost(posts._id)" class="btn-primary">Delete</button>
+      </div>
+  </div>
+  <div class="statu">
+      <p>{{posts.description}}</p>
+  </div>
+</div>
+<div class="elementspost">
+<div class="cardBox">
+  <div class="card">
+      <div>
+          <div class="numberspost">{{posts.Nbmatching}}</div>
+          <div class="cardNamepost">Matching Number</div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+
+</html>
+<div class="statistics">
+
+</div>

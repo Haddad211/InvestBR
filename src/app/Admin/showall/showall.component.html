@@ -1,0 +1,167 @@
+
+<html lang="en">
+  <head>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="showall.component.css">
+
+  </head>
+  <body>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+       data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+       <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <div class="navbar-header" data-logobg="skin6">
+                  <p style="font-size: 30px ;text-align :center;">Admin</p>
+            </div>
+        </nav>
+       </header>
+       <aside class="left-sidebar" data-sidebarbg="skin6">
+           <!-- Sidebar scroll-->
+           <div class="scroll-sidebar">
+               <!-- Sidebar navigation-->
+               <nav class="sidebar-nav">
+                   <ul id="sidebarnav">
+                       <!-- User Profile-->
+                       <li class="sidebar-item pt-2">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/admin']"
+                               aria-expanded="false">
+                               <i class="far fa-clock" aria-hidden="true"></i>
+                               <span class="hide-menu">Dashboard</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/showaccepted']"
+                               aria-expanded="false">
+                               <i class="fa fa-table" aria-hidden="true"></i>
+                               <span class="hide-menu">Show accepted</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/showall']"
+                               aria-expanded="false">
+                               <i class="fa fa-table" aria-hidden="true"></i>
+                               <span class="hide-menu">Show all</span>
+                           </a>
+                       </li>
+                       <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" [routerLink]="['/addadmin']"
+                               aria-expanded="false">
+                               <i class="fa fa-font" aria-hidden="true"></i>
+                               <span class="hide-menu">Add Admin</span>
+                           </a>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" (click)="logout()"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Logout</span>
+                            </a>
+                   </ul>
+               </nav>
+           </div>
+       </aside>
+
+
+      <div class="page-wrapper">
+
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">All Users</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Investors</h3>
+                        <div class="table-responsive">
+                            <table class="table text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th style="text-align: center;">Email</th>
+                                        <th>Company</th>
+                                        <th>Role</th>
+                                        <th>Country</th>
+                                        <th>Branch</th>
+                                        <th>Code</th>
+                                        <th>Phone</th>
+                                        <th style="text-align: center;">ADD</th>
+                                        <th style="text-align: center;">DEl</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let investor of investors">
+                                        <td>{{ investor.firstname}}</td>
+                                        <td>{{ investor.lastname}}</td>
+                                        <td>{{ investor.email }}</td>
+                                        <td>{{ investor.company }}</td>
+                                        <td>{{ investor.rolecompany }}</td>
+                                        <td>{{ investor.country }}</td>
+                                        <td>{{ investor.branch }}</td>
+                                        <td>{{ investor.code }}</td>
+                                        <td>{{ investor.phone }}</td>
+                                        <td><a class="btn btn-success" (click)="addInvestor(investor.id)">ADD</a></td>
+                                        <td><a class="btn btn-danger" (click)="deleteUser(investor.id)">DEL</a></td>
+
+                                        </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Innovators</h3>
+                        <div class="table-responsive">
+                            <table class="table text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th style="text-align: center;">Email</th>
+                                        <th>Country</th>
+                                        <th>Branch</th>
+                                        <th>Code</th>
+                                        <th>Phone</th>
+                                        <th style="text-align: center;">ADD</th>
+                                        <th style="text-align: center;">DEl</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let innovator of innovators">
+                                        <td>{{ innovator.firstname }}</td>
+                                        <td>{{ innovator.lastname }}</td>
+                                        <td>{{ innovator.email }}</td>
+                                        <td>{{ innovator.country }}</td>
+                                        <td>{{ innovator.branch }}</td>
+                                        <td>{{ innovator.code }}</td>
+                                        <td>{{ innovator.phone }}</td>
+                                        <td><a class="btn btn-success" (click)="addInnovator(innovator.id)">ADD</a></td>
+                                        <td><a class="btn btn-danger" (click)="deleteUser(innovator.id)">DEL</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+  </body>
+
+
+
